@@ -17,25 +17,23 @@ Console.WriteLine("введите x:");
 int x = int.Parse(Console.ReadLine());
 Console.WriteLine("введите предел");
 int n = int.Parse(Console.ReadLine());
-while (n == 0)
+
+double w = 0;
+double p = 1;
+for (int k = 1; k <= n; k++)
 {
-    Console.WriteLine("некорректное значение");
-    Console.Write("введите предел: ");
-    n = int.Parse(Console.ReadLine());
+    w += (Math.Pow(-1, 3 * k + 1)) / ((k - 5) * Math.Pow(x, k));
+    
+    for (int m = 1; m <= k + 7; m++)
+    {
+        if (m == 2 ||m==3) continue;
+        p *= (m * m - 9) / (m - 2);
+    }
 }
-double W = 0;
-int k = 1;
-W += (Math.Pow(-1, 3 * k + 1) / (k - 5) * Math.Pow(x, k));
-double P = 0;
-int m = 1;
-while (P > 8)
-{
-    Console.WriteLine("некорректное значение");
-}
-P *= ((m * m - 9) / (m - 2));
-double S = 0;
-S = W + P;
-Console.WriteLine($"S = {S:f2}");
+double s = 0;
+s = w * p;
+Console.WriteLine($"s={s:F2}");
+
 
 //вычисление бесконечных сумм
 //вариант 11
@@ -76,3 +74,4 @@ for (double x1 = -1; x1 <= 1; x1 += 0.25)
 }
 
 Console.WriteLine("-----------------------------");
+
