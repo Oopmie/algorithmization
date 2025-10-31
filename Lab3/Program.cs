@@ -39,7 +39,21 @@ Console.WriteLine($"S = {S:f2}");
 
 //вычисление бесконечных сумм
 //вариант 11
-
+Console.Write("введите n:");
+int n = int.Parse(Console.ReadLine());
+Console.Write("введите x:");
+int x = int.Parse(Console.ReadLine());
+double s = 0;
+long F = 1;
+for (int i = 1; i < n; i ++)
+{
+    for (int j = 1; j <= i; j ++)
+    {
+        F *= j;
+    }
+    s+=((2*i+1)*Math.Pow(x,n)/F);
+}
+Console.WriteLine($"s={s}");
 
 //табулирование функций
 //вариант 11. высокий
@@ -60,4 +74,5 @@ for (double x1 = -1; x1 <= 1; x1 += 0.25)
     }
     Console.WriteLine($"|{x1,9:f2} {" ",-3}|{f,12:f2}{" "}|");
 }
+
 Console.WriteLine("-----------------------------");
